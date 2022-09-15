@@ -1,0 +1,45 @@
+(library
+ (name env)
+ (modules env)
+ (preprocess
+  (pps bisect_ppx --conditional)))
+
+(library
+ (name types)
+ (modules types)
+ (libraries env)
+ (preprocess
+  (pps bisect_ppx --conditional)))
+
+(library
+ (name reader)
+ (modules reader)
+ (preprocess
+  (pps bisect_ppx --conditional)))
+
+(library
+ (name parser)
+ (modules parser)
+ (libraries types reader)
+ (preprocess
+  (pps bisect_ppx --conditional)))
+
+(library
+ (name eval)
+ (modules eval)
+ (libraries types env parser)
+ (preprocess
+  (pps bisect_ppx --conditional)))
+
+(library
+ (name scheme)
+ (modules scheme)
+ (libraries types env eval)
+ (preprocess
+  (pps bisect_ppx --conditional)))
+
+(executable
+ (name main)
+ (modules main)
+ (public_name main)
+ (libraries eval parser scheme reader))

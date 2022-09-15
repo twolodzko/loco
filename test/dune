@@ -1,0 +1,39 @@
+(library
+ (name env_test)
+ (modules env_test)
+ (libraries env)
+ (inline_tests)
+ (preprocess
+  (pps ppx_inline_test)))
+
+(library
+ (name parser_test)
+ (modules parser_test)
+ (libraries types reader parser)
+ (inline_tests)
+ (preprocess
+  (pps ppx_inline_test)))
+
+(library
+ (name eval_test)
+ (modules eval_test)
+ (libraries types env parser reader eval)
+ (inline_tests)
+ (preprocess
+  (pps ppx_inline_test)))
+
+(library
+ (name scheme_test)
+ (modules scheme_test)
+ (libraries types env eval reader scheme)
+ (inline_tests)
+ (preprocess
+  (pps ppx_inline_test)))
+
+(library
+ (name integration_test)
+ (modules integration_test)
+ (libraries types eval reader scheme)
+ (inline_tests)
+ (preprocess
+  (pps ppx_inline_test)))
