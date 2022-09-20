@@ -72,7 +72,7 @@ let carf args _ =
   | [] -> raise Invalid_input
 ```
 
-For a more complicated example, `lambda` creates an anonymous function that evaluates its body in the local environment.
+For a more complicated example, `(lambda (args ...) body ...)` creates an anonymous function that evaluates its body in the local environment.
 
 ```ocaml
 let lambdaf args env =
