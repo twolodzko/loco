@@ -36,7 +36,7 @@ let rec eval sexpr env =
   | _ -> sexpr
 ```
 
-and the environment `env` is defined as a list of pointers to maps
+where the environment `env` is defined as a list of pointers to maps
 
 ```ocaml
 module LocalEnv = Map.Make(String)
