@@ -10,6 +10,8 @@
 **loco** is a minimal Scheme implementation in OCaml. Implementing lisp in a functional programming language like OCaml
 is trivial as linked lists already are the basic building blocks and recursion is the default mode of execution.
 
+The available data types are
+
 ```ocaml
 type sexpr =
   | Nil
@@ -23,7 +25,7 @@ type sexpr =
 and env = sexpr Env.t
 ```
 
-The objects are evaluated as follows
+They are evaluated as follows
 
 ```ocaml
 let rec eval sexpr env =
