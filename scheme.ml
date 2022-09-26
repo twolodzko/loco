@@ -88,9 +88,7 @@ let equalf args _ =
     match x, y with
     | (Fun x), (Fun y) -> Bool (x == y)
     | x, y -> (
-        try
-          if x = y then Bool true
-          else Bool false
+        try Bool (x = y)
         with _ -> Bool false
       )
   in match args with
