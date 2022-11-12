@@ -178,6 +178,7 @@ let is_string args _ =
 
 let is_pair args _ =
   match args with
+  | [List []] -> Bool false
   | [List _] -> Bool true
   | [_] -> Bool false
   | _ -> raise Wrong_number_of_args
